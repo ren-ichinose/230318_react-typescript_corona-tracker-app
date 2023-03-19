@@ -3,7 +3,12 @@ import Selector from '../components/Selector'
 import Title from '../components/Title'
 import Results from '../components/Results'
 
-const TopPage = ({ countriesJson, setCountry, getCountryData }) => {
+const TopPage = ({
+  countriesJson,
+  setCountry,
+  getCountryData,
+  countryData,
+}) => {
   return (
     <>
       <Header />
@@ -13,7 +18,7 @@ const TopPage = ({ countriesJson, setCountry, getCountryData }) => {
         setCountry={setCountry}
         getCountryData={getCountryData}
       />
-      <Results />
+      <Results countryData={countryData} />
     </>
   )
 }
