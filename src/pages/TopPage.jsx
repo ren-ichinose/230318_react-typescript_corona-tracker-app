@@ -8,6 +8,7 @@ const TopPage = ({
   setCountry,
   getCountryData,
   countryData,
+  isLoading,
 }) => {
   return (
     <>
@@ -18,7 +19,7 @@ const TopPage = ({
         setCountry={setCountry}
         getCountryData={getCountryData}
       />
-      <Results countryData={countryData} />
+      <Results countryData={countryData} isLoading={isLoading} />
     </>
   )
 }

@@ -15,8 +15,10 @@ function App() {
     totalRecovered: '',
   })
   const [allCountriesData, setAllCountriesData] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
 
   const getCountryData = () => {
+    setIsLoading(true)
     fetch(
       `https://monotein-books.vercel.app/api/corona-tracker/country/${country}`
     )
@@ -42,12 +44,14 @@ function App() {
           newRecovered: newRecovered,
           totalRecovered: todayCountryData.Recovered,
         })
+        setIsLoading(false)
       })
       .catch((err) => {
         alert('エラーが発生しました。再度読み込みをしてください')
       })
   }
   const getAllCountryData = () => {
+    setIsLoading(true)
     fetch('https://monotein-books.vercel.app/api/corona-tracker/summary')
       .then((res) => res.json())
       .then((data) => {
@@ -57,6 +61,7 @@ function App() {
           }
         )
         setAllCountriesData(result)
+        setIsLoading(false)
       })
       .catch((err) => {
         alert('エラーが発生しました。再度読み込みをしてください')
@@ -78,12 +83,18 @@ function App() {
               setCountry={setCountry}
               getCountryData={getCountryData}
               countryData={countryData}
+              isLoading={isLoading}
             />
           }
         />
         <Route
           path="/world"
-          element={<WorldPage allCountriesData={allCountriesData} />}
+          element={
+            <WorldPage
+              allCountriesData={allCountriesData}
+              isLoading={isLoading}
+            />
+          }
         />
       </Routes>
     </BrowserRouter>
