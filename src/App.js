@@ -6,7 +6,7 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom'
 import WorldPage from './pages/WorldPage'
 
 function App() {
-  const [country, setCountry] = useState('')
+  const [country, setCountry] = useState('japan')
   const [countryData, setCountryData] = useState({
     date: '',
     newConfirmed: '',
@@ -69,6 +69,10 @@ function App() {
   }
 
   useEffect(() => {
+    getCountryData()
+  }, [country])
+
+  useEffect(() => {
     getAllCountryData()
   }, [])
 
@@ -81,7 +85,6 @@ function App() {
             <TopPage
               countriesJson={countriesJson}
               setCountry={setCountry}
-              getCountryData={getCountryData}
               countryData={countryData}
               isLoading={isLoading}
             />

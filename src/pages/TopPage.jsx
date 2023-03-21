@@ -6,7 +6,6 @@ import Results from '../components/Results'
 const TopPage = ({
   countriesJson,
   setCountry,
-  getCountryData,
   countryData,
   isLoading,
 }) => {
@@ -17,7 +16,6 @@ const TopPage = ({
       <Selector
         countriesJson={countriesJson}
         setCountry={setCountry}
-        getCountryData={getCountryData}
       />
       <Results countryData={countryData} isLoading={isLoading} />
     </>

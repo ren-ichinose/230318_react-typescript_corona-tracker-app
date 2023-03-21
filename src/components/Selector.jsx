@@ -1,8 +1,6 @@
-const Selector = ({ countriesJson, setCountry, getCountryData }) => {
+const Selector = ({ countriesJson, setCountry }) => {
   return (
-    <>
       <select onChange={(e) => setCountry(e.target.value)}>
-        <option>select A country</option>
         {countriesJson.map(({ Country, Slug }) => {
           return (
             <option key={Slug} value={Slug}>
@@ -11,8 +9,6 @@ const Selector = ({ countriesJson, setCountry, getCountryData }) => {
           )
         })}
       </select>
-      <button onClick={getCountryData}>Get Data</button>
-    </>
   )
 }
 
