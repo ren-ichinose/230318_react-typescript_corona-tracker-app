@@ -43,6 +43,9 @@ function App() {
           totalRecovered: todayCountryData.Recovered,
         })
       })
+      .catch((err) => {
+        alert('エラーが発生しました。再度読み込みをしてください')
+      })
   }
   const getAllCountryData = () => {
     fetch('https://monotein-books.vercel.app/api/corona-tracker/summary')
@@ -54,6 +57,9 @@ function App() {
           }
         )
         setAllCountriesData(result)
+      })
+      .catch((err) => {
+        alert('エラーが発生しました。再度読み込みをしてください')
       })
   }
 
