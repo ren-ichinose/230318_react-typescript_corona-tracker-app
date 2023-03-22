@@ -70,6 +70,7 @@ function App() {
 
   useEffect(() => {
     getCountryData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [country])
 
   useEffect(() => {
