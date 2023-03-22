@@ -1,8 +1,14 @@
 import Card from '../components/Card'
 import Header from '../components/Header'
 import Title from '../components/Title'
+import { AllCountryData } from '../App'
 
-const WorldPage = ({ allCountriesData, isLoading }) => {
+interface WorldPageProps {
+  allCountriesData: AllCountryData[]
+  isLoading: Boolean
+}
+
+const WorldPage = ({ allCountriesData, isLoading }: WorldPageProps) => {
   return (
     <div>
       <Header />
