@@ -1,6 +1,12 @@
 import Loading from './Loading'
+import { AllCountryData } from '../App'
 
-const Card = ({ allCountriesData, isLoading }) => {
+interface CardProps {
+  allCountriesData: AllCountryData[]
+  isLoading: Boolean
+}
+
+const Card = ({ allCountriesData, isLoading }: CardProps) => {
   return (
     <>
       {isLoading ? (

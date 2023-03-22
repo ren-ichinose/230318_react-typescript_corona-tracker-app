@@ -1,6 +1,12 @@
 import Loading from './Loading'
+import { CountryData } from '../App'
 
-const Results = ({ countryData, isLoading }) => {
+interface ResultsProprs {
+  countryData: CountryData
+  isLoading: boolean
+}
+
+const Results = ({ countryData, isLoading }: ResultsProprs) => {
   const { date, newConfirmed, totalConfirmed, newRecovered, totalRecovered } =
     countryData
 
